@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="머신러닝을 공부하며 배운 내용을 정리하는 개인 학습 저널입니다. 지도학습, 딥러닝, NLP 등 다양한 주제를 다룹니다." />
+    <meta name="keywords" content="머신러닝, 딥러닝, 파이썬, Machine Learning, Deep Learning, Python, AI, 인공지능" />
+    <meta name="author" content="ML Study Journal" />
+    <meta property="og:title" content="ML Study Journal - 머신러닝 공부 기록" />
+    <meta property="og:description" content="머신러닝을 공부하며 배운 내용을 정리하는 개인 학습 저널" />
+    <meta property="og:type" content="website" />
+    <title>ML Study Journal | 머신러닝 공부 기록</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+</head>
+
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ===========================
+     Navigation
+     =========================== -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">🧠</div>
+            <span class="nav-logo-text">ML Journal</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#topics">학습 주제</a></li>
+            <li><a href="#notes">학습 노트</a></li>
+            <li><a href="#skills">도구 &amp; 스킬</a></li>
+            <li><a href="#journey">학습 여정</a></li>
+            <li><a href="#about">소개</a></li>
+            <li>
+                <a href="https://github.com/e2dus" target="_blank" rel="noopener" class="nav-github-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- ===========================
+     Hero Section
+     =========================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-image"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>✨</span>
+                머신러닝 학습 저널
+            </div>
+
+            <h1 class="hero-title">
+                배우고, 정리하고,<br />
+                <span class="gradient-text">성장하다</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                머신러닝을 공부하며 배운 개념과 코드, 실험 결과를 기록합니다.
+                이론부터 실습까지, 학습의 흔적을 남겨두는 공간입니다.
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="6" data-suffix="">6</span>
+                    <span class="hero-stat-label">학습 주제</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="12" data-suffix="">12</span>
+                    <span class="hero-stat-label">학습 노트</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="8" data-suffix="">8</span>
+                    <span class="hero-stat-label">실습 프로젝트</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#topics" class="btn-primary">
+                    학습 주제 보기
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#notes" class="btn-secondary">
+                    📝 학습 노트
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     Topics Section
+     =========================== -->
+    <section id="topics">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">📚 Learning Topics</div>
+                <h2 class="section-title">학습 주제</h2>
+                <p class="section-desc">머신러닝의 다양한 분야를 체계적으로 공부하고 있습니다. 카드를 클릭하면 상세 내용을 볼 수 있어요.</p>
+            </div>
+
+            <div class="topics-grid">
+
+                <!-- Supervised Learning -->
+                <div class="topic-card blue reveal" data-modal="supervised">
+                    <div class="topic-icon">🎯</div>
+                    <div class="topic-title">지도 학습</div>
+                    <div class="topic-desc">레이블된 데이터를 활용해 분류와 회귀 모델을 학습하는 방법. Linear Regression부터 XGBoost까지.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-blue">sklearn</span>
+                        <span class="tag tag-blue">XGBoost</span>
+                        <span class="tag tag-blue">분류/회귀</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="78%"></div>
+                        </div>
+                        <span class="topic-progress-text">78%</span>
+                    </div>
+                </div>
+
+                <!-- Unsupervised Learning -->
+                <div class="topic-card purple reveal" data-modal="unsupervised">
+                    <div class="topic-icon">🔍</div>
+                    <div class="topic-title">비지도 학습</div>
+                    <div class="topic-desc">레이블 없이 데이터의 구조와 패턴을 발견하는 방법. 클러스터링과 차원 축소 기법.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-purple">K-Means</span>
+                        <span class="tag tag-purple">PCA</span>
+                        <span class="tag tag-purple">t-SNE</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="55%"></div>
+                        </div>
+                        <span class="topic-progress-text">55%</span>
+                    </div>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="topic-card orange reveal" data-modal="deeplearning">
+                    <div class="topic-icon">🧠</div>
+                    <div class="topic-title">딥 러닝</div>
+                    <div class="topic-desc">신경망 기반의 복잡한 패턴 학습. CNN, RNN, Transformer 아키텍처와 PyTorch 활용.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-orange">PyTorch</span>
+                        <span class="tag tag-orange">CNN</span>
+                        <span class="tag tag-orange">Transformer</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="60%"></div>
+                        </div>
+                        <span class="topic-progress-text">60%</span>
+                    </div>
+                </div>
+
+                <!-- Data Preprocessing -->
+                <div class="topic-card green reveal" data-modal="preprocessing">
+                    <div class="topic-icon">⚙️</div>
+                    <div class="topic-title">데이터 전처리</div>
+                    <div class="topic-desc">결측치 처리, 정규화, 특성 공학 등 모델 성능을 극대화하기 위한 데이터 준비 과정.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-green">Pandas</span>
+                        <span class="tag tag-green">NumPy</span>
+                        <span class="tag tag-green">Feature Eng.</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="85%"></div>
+                        </div>
+                        <span class="topic-progress-text">85%</span>
+                    </div>
+                </div>
+
+                <!-- Model Evaluation -->
+                <div class="topic-card cyan reveal" data-modal="evaluation">
+                    <div class="topic-icon">📊</div>
+                    <div class="topic-title">모델 평가 &amp; 튜닝</div>
+                    <div class="topic-desc">교차 검증, 하이퍼파라미터 튜닝, 과적합 방지 전략을 통한 일반화 성능 향상.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-cyan">Cross-Val</span>
+                        <span class="tag tag-cyan">GridSearch</span>
+                        <span class="tag tag-cyan">Regularization</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="70%"></div>
+                        </div>
+                        <span class="topic-progress-text">70%</span>
+                    </div>
+                </div>
+
+                <!-- NLP -->
+                <div class="topic-card pink reveal" data-modal="nlp">
+                    <div class="topic-icon">💬</div>
+                    <div class="topic-title">자연어 처리 (NLP)</div>
+                    <div class="topic-desc">텍스트 데이터 분석을 위한 임베딩, BERT, Transformer 기반 최신 NLP 기법.</div>
+                    <div class="topic-tags">
+                        <span class="tag tag-pink">BERT</span>
+                        <span class="tag tag-pink">HuggingFace</span>
+                        <span class="tag tag-pink">Word2Vec</span>
+                    </div>
+                    <div class="topic-progress">
+                        <div class="topic-progress-bar">
+                            <div class="topic-progress-fill" data-width="40%"></div>
+                        </div>
+                        <span class="topic-progress-text">40%</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     Notes Section
+     =========================== -->
+    <section id="notes">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">📝 Study Notes</div>
+                <h2 class="section-title">학습 노트</h2>
+                <p class="section-desc">공부하면서 정리한 핵심 개념과 코드 스니펫, 실습 결과를 기록한 노트입니다.</p>
+            </div>
+
+            <div class="notes-grid">
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-blue">지도 학습</span>
+                        <span class="note-date">2026.02.20</span>
+                    </div>
+                    <div class="note-title">XGBoost vs Random Forest: 언제 무엇을 써야 할까?</div>
+                    <div class="note-excerpt">두 앙상블 방법의 차이를 실제 데이터셋에 적용해보며 비교했습니다. 학습 속도와 성능 트레이드오프, 하이퍼파라미터 튜닝 전략까지
+                        정리했습니다.</div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 7분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-orange">딥러닝</span>
+                        <span class="note-date">2026.02.16</span>
+                    </div>
+                    <div class="note-title">PyTorch로 처음 만드는 CNN 이미지 분류기</div>
+                    <div class="note-excerpt">CIFAR-10 데이터셋으로 간단한 CNN을 구현해봤습니다. 레이어 쌓기부터 학습 루프, 정확도 측정까지 단계별로 정리합니다.
+                    </div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 12분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-purple">비지도 학습</span>
+                        <span class="note-date">2026.02.10</span>
+                    </div>
+                    <div class="note-title">K-Means 클러스터링 최적 k값 찾기 (Elbow Method)</div>
+                    <div class="note-excerpt">Elbow Method와 Silhouette Score를 활용해 최적의 클러스터 수를 결정하는 방법을 고객 세분화 예제로
+                        실습했습니다.</div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 8분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-green">전처리</span>
+                        <span class="note-date">2026.02.05</span>
+                    </div>
+                    <div class="note-title">데이터 불균형 해결하기: SMOTE와 클래스 가중치</div>
+                    <div class="note-excerpt">불균형 데이터셋에서 모델이 다수 클래스로 편향되는 문제를 SMOTE 오버샘플링과 class_weight 파라미터로 해결하는 방법을
+                        정리했습니다.</div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 10분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-cyan">모델 평가</span>
+                        <span class="note-date">2026.01.28</span>
+                    </div>
+                    <div class="note-title">ROC-AUC? Precision-Recall? 나에게 맞는 평가지표 고르기</div>
+                    <div class="note-excerpt">분류 모델의 다양한 평가 지표를 정리하고, 데이터 불균형 상황에서 어떤 지표가 더 유용한지, 실제 예제로 직접 비교해봤습니다.
+                    </div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 9분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+                <a href="#" class="note-card reveal">
+                    <div class="note-meta">
+                        <span class="note-category tag tag-pink">NLP</span>
+                        <span class="note-date">2026.01.20</span>
+                    </div>
+                    <div class="note-title">HuggingFace Transformers로 감성 분석 파인튜닝하기</div>
+                    <div class="note-excerpt">사전 학습된 BERT 모델을 한국어 감성 분석 태스크에 파인튜닝하는 과정을 처음부터 끝까지 코드와 함께 정리했습니다.</div>
+                    <div class="note-footer">
+                        <span class="note-read-time">⏱ 15분 읽기</span>
+                        <div class="note-arrow">→</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     Skills Section
+     =========================== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">🛠 Tools &amp; Skills</div>
+                <h2 class="section-title">사용하는 도구들</h2>
+                <p class="section-desc">머신러닝 공부에 사용하는 언어, 라이브러리, 프레임워크입니다.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🔢</div>
+                    <div class="skill-name">NumPy</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🐼</div>
+                    <div class="skill-name">Pandas</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">📈</div>
+                    <div class="skill-name">Matplotlib</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-name">Scikit-learn</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">⚡</div>
+                    <div class="skill-name">PyTorch</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🌊</div>
+                    <div class="skill-name">TensorFlow</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🚀</div>
+                    <div class="skill-name">XGBoost</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🤗</div>
+                    <div class="skill-name">HuggingFace</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">📓</div>
+                    <div class="skill-name">Jupyter</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-name">Colab</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon">🐙</div>
+                    <div class="skill-name">GitHub</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     Learning Journey (Timeline)
+     =========================== -->
+    <section id="journey" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">🗓 Learning Journey</div>
+                <h2 class="section-title">학습 여정</h2>
+                <p class="section-desc">머신러닝을 공부해온 발자취입니다.</p>
+            </div>
+
+            <div class="timeline" style="max-width: 640px; margin: 0 auto;">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026년 2월</div>
+                    <div class="timeline-title">🤗 NLP 파인튜닝 실습</div>
+                    <div class="timeline-desc">HuggingFace Transformers를 활용해 BERT 기반 한국어 감성 분석 모델을 파인튜닝했습니다. 사전 학습 모델의
+                        강력함을 실감했습니다.</div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2026년 1월</div>
+                    <div class="timeline-title">⚡ PyTorch 딥러닝 입문</div>
+                    <div class="timeline-desc">PyTorch 기초 문법부터 CNN 구현까지 학습했습니다. CIFAR-10으로 이미지 분류기를 직접 만들어보며 딥러닝의 핵심 개념을
+                        이해했습니다.</div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2025년 12월</div>
+                    <div class="timeline-title">📊 Kaggle 첫 번째 대회 참가</div>
+                    <div class="timeline-desc">Titanic 생존자 예측 대회에 참가했습니다. 특성 공학과 앙상블 기법을 적용해 상위 25%에 들었습니다.</div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2025년 11월</div>
+                    <div class="timeline-title">🎯 사이킷런 완전 정복</div>
+                    <div class="timeline-desc">Scikit-learn의 주요 알고리즘(SVM, Random Forest, Gradient Boosting 등)을 학습하고
+                        Pipeline을 활용한 실전 워크플로우를 구축했습니다.</div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2025년 10월</div>
+                    <div class="timeline-title">🐼 데이터 분석 기초</div>
+                    <div class="timeline-desc">Python으로 데이터 분석을 시작했습니다. Pandas와 NumPy, Matplotlib로 EDA와 데이터 시각화 기술을
+                        익혔습니다.</div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-date">2025년 9월</div>
+                    <div class="timeline-title">🚀 머신러닝 공부 시작!</div>
+                    <div class="timeline-desc">머신러닝에 관심을 갖게 되어 공부를 시작했습니다. Andrew Ng의 강의와 핸즈온 머신러닝 책으로 기초를 쌓았습니다.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     About Section
+     =========================== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-card reveal">
+                <div>
+                    <h2 class="about-title">
+                        안녕하세요! 👋<br />
+                        <span
+                            style="background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                            머신러닝을 공부하는
+                        </span><br />
+                        개발자입니다
+                    </h2>
+                    <p class="about-text">
+                        AI와 머신러닝에 관심을 갖고 공부를 시작하게 됐습니다.
+                        이론과 실습을 함께 진행하며 배운 내용을 이 웹사이트에 기록합니다.
+                        Kaggle 대회 참가와 다양한 프로젝트를 통해 실력을 쌓아가고 있습니다.
+                    </p>
+                    <p class="about-text">
+                        지도 학습부터 딥러닝, NLP까지 머신러닝의 다양한 분야를 폭넓게 탐구하며
+                        실제 문제 해결에 AI를 적용하는 것을 목표로 하고 있습니다.
+                    </p>
+                    <a href="#topics" class="btn-primary" style="display: inline-flex; width: fit-content;">
+                        📚 학습 내용 보기
+                    </a>
+                </div>
+
+                <div class="contact-links">
+                    <a href="https://github.com/e2dus" target="_blank" rel="noopener" class="contact-link"
+                        id="github-link">
+                        <div class="contact-link-icon" style="background: rgba(255,255,255,0.06);">🐙</div>
+                        <div class="contact-link-info">
+                            <div class="contact-link-label">GitHub</div>
+                            <div class="contact-link-value">github.com/e2dus</div>
+                        </div>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-muted)">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+
+                    <a href="https://kaggle.com" target="_blank" rel="noopener" class="contact-link" id="kaggle-link">
+                        <div class="contact-link-icon" style="background: rgba(32, 148, 209, 0.1);">📊</div>
+                        <div class="contact-link-info">
+                            <div class="contact-link-label">Kaggle</div>
+                            <div class="contact-link-value">kaggle.com/username</div>
+                        </div>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-muted)">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+
+                    <div class="contact-link" style="cursor: default;">
+                        <div class="contact-link-icon" style="background: rgba(99, 179, 237, 0.1);">✉️</div>
+                        <div class="contact-link-info">
+                            <div class="contact-link-label">이메일</div>
+                            <div class="contact-link-value">your@email.com</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-link" style="cursor: default;">
+                        <div class="contact-link-icon" style="background: rgba(104, 211, 145, 0.1);">📍</div>
+                        <div class="contact-link-info">
+                            <div class="contact-link-label">위치</div>
+                            <div class="contact-link-value">대한민국 🇰🇷</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     Footer
+     =========================== -->
+    <footer>
+        <p>Made with <span>❤️</span> and lots of <span>☕</span> · ML Study Journal &copy; 2026</p>
+        <p style="margin-top: 0.5rem; font-size: 0.78rem; color: var(--text-muted);">Powered by GitHub Pages</p>
+    </footer>
+
+    <!-- ===========================
+     Topic Detail Modal
+     =========================== -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <button class="modal-close" id="modal-close" aria-label="닫기">✕</button>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-subtitle" id="modal-subtitle"></p>
+            <div class="modal-content" id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
