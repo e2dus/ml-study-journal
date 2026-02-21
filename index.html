@@ -36,6 +36,7 @@
             <li><a href="#skills">도구 &amp; 스킬</a></li>
             <li><a href="#journey">학습 여정</a></li>
             <li><a href="#about">소개</a></li>
+            <li><a href="write.html" style="color:var(--accent-cyan);">✏️ 글쓰기</a></li>
             <li>
                 <a href="https://github.com/e2dus" target="_blank" rel="noopener" class="nav-github-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -239,93 +240,12 @@
                 <div class="section-tag">📝 Study Notes</div>
                 <h2 class="section-title">학습 노트</h2>
                 <p class="section-desc">공부하면서 정리한 핵심 개념과 코드 스니펫, 실습 결과를 기록한 노트입니다.</p>
+                <a href="write.html" class="btn-primary" style="display:inline-flex; margin-top:1.25rem;">✏️ 새 글
+                    작성하기</a>
             </div>
 
-            <div class="notes-grid">
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-blue">지도 학습</span>
-                        <span class="note-date">2026.02.20</span>
-                    </div>
-                    <div class="note-title">XGBoost vs Random Forest: 언제 무엇을 써야 할까?</div>
-                    <div class="note-excerpt">두 앙상블 방법의 차이를 실제 데이터셋에 적용해보며 비교했습니다. 학습 속도와 성능 트레이드오프, 하이퍼파라미터 튜닝 전략까지
-                        정리했습니다.</div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 7분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-orange">딥러닝</span>
-                        <span class="note-date">2026.02.16</span>
-                    </div>
-                    <div class="note-title">PyTorch로 처음 만드는 CNN 이미지 분류기</div>
-                    <div class="note-excerpt">CIFAR-10 데이터셋으로 간단한 CNN을 구현해봤습니다. 레이어 쌓기부터 학습 루프, 정확도 측정까지 단계별로 정리합니다.
-                    </div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 12분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-purple">비지도 학습</span>
-                        <span class="note-date">2026.02.10</span>
-                    </div>
-                    <div class="note-title">K-Means 클러스터링 최적 k값 찾기 (Elbow Method)</div>
-                    <div class="note-excerpt">Elbow Method와 Silhouette Score를 활용해 최적의 클러스터 수를 결정하는 방법을 고객 세분화 예제로
-                        실습했습니다.</div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 8분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-green">전처리</span>
-                        <span class="note-date">2026.02.05</span>
-                    </div>
-                    <div class="note-title">데이터 불균형 해결하기: SMOTE와 클래스 가중치</div>
-                    <div class="note-excerpt">불균형 데이터셋에서 모델이 다수 클래스로 편향되는 문제를 SMOTE 오버샘플링과 class_weight 파라미터로 해결하는 방법을
-                        정리했습니다.</div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 10분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-cyan">모델 평가</span>
-                        <span class="note-date">2026.01.28</span>
-                    </div>
-                    <div class="note-title">ROC-AUC? Precision-Recall? 나에게 맞는 평가지표 고르기</div>
-                    <div class="note-excerpt">분류 모델의 다양한 평가 지표를 정리하고, 데이터 불균형 상황에서 어떤 지표가 더 유용한지, 실제 예제로 직접 비교해봤습니다.
-                    </div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 9분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="#" class="note-card reveal">
-                    <div class="note-meta">
-                        <span class="note-category tag tag-pink">NLP</span>
-                        <span class="note-date">2026.01.20</span>
-                    </div>
-                    <div class="note-title">HuggingFace Transformers로 감성 분석 파인튜닝하기</div>
-                    <div class="note-excerpt">사전 학습된 BERT 모델을 한국어 감성 분석 태스크에 파인튜닝하는 과정을 처음부터 끝까지 코드와 함께 정리했습니다.</div>
-                    <div class="note-footer">
-                        <span class="note-read-time">⏱ 15분 읽기</span>
-                        <div class="note-arrow">→</div>
-                    </div>
-                </a>
-
+            <div class="notes-grid" id="notes-grid">
+                <!-- posts.js에서 동적으로 렌더링 -->
             </div>
         </div>
     </section>
@@ -546,6 +466,7 @@
         </div>
     </div>
 
+    <script src="posts.js"></script>
     <script src="script.js"></script>
 </body>
 

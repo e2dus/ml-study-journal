@@ -405,3 +405,52 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// ===========================
+// Dynamic Notes Grid (from posts.js)
+// ===========================
+function formatNoteDate(dateStr) {
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function renderNotesGrid() {
+  const grid = document.getElementById('notes-grid');
+  if (!grid || typeof POSTS === 'undefined') return;
+
+  if (POSTS.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column:1/-1; text-align:center; padding:4rem 2rem; color:var(--text-muted);">
+        <div style="font-size:3rem; margin-bottom:1rem;">📝</div>
+        <p>아직 작성된 글이 없어요. 첫 글을 작성해보세요!</p>
+        <a href="write.html" class="btn-primary" style="display:inline-flex; margin-top:1.5rem;">✏️ 첫 글 쓰기</a>
+      </div>
+    `;
+    return;
+  }
+
+  const colorMap = {
+    blue: 'tag-blue', purple: 'tag-purple', orange: 'tag-orange',
+    green: 'tag-green', cyan: 'tag-cyan', pink: 'tag-pink'
+  };
+
+  grid.innerHTML = POSTS.map(post => `
+    <a href="post.html?id=${post.id}" class="note-card reveal">
+      <div class="note-meta">
+        <span class="note-category tag ${colorMap[post.categoryColor] || 'tag-blue'}">${post.category}</span>
+        <span class="note-date">${formatNoteDate(post.date)}</span>
+      </div>
+      <div class="note-title">${post.title}</div>
+      <div class="note-excerpt">${post.excerpt}</div>
+      <div class="note-footer">
+        <span class="note-read-time">⏱ ${post.readTime}분 읽기</span>
+        <div class="note-arrow">→</div>
+      </div>
+    </a>
+  `).join('');
+
+  // Re-observe new reveal elements
+  grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+renderNotesGrid();
